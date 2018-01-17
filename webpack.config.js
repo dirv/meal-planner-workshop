@@ -2,8 +2,7 @@ const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 
 var serverConfig = {
-  target: 'node',
-  entry: './src/server/server.js',
+  target: 'node', entry: './src/server/server.js',
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
@@ -22,8 +21,13 @@ var clientConfig = {
   entry: './src/client/client.js',
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
-    ]
+      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+			{ test: /\.scss$/, exclude: /node_modules/,
+					use: [
+						{ loader: "style-loader" },
+						{ loader: "css-loader" },
+						{ loader: "sass-loader" }]
+        }]
   },
   output: {
     path: path.resolve(__dirname, 'dist/public'),
