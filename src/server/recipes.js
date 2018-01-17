@@ -1,11 +1,15 @@
 const recipes = [{
   name: 'Toast',
   ingredients: [{
-    name: 'white bread',
+    name: 'sliced bread',
     amount: 2,
     measure: 'slice'
+  },{
+    name: 'butter',
+    amount: 1,
+    measure: 'tablespoon'
   }],
-  instructions: 'Here are the instructions for the recipe.',
+  instructions: 'Cook bread in toaster, then spread butter. Serve warm.',
   serves: 1,
   preparationTimeInMins: 3
 }]
