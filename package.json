@@ -1,0 +1,16 @@
+{
+  "name": "meal-planner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "express": "^4.16.2",
+    "jasmine": "^2.8.0",
+    "react": "^16.2.0",
+    "react-test-utils": "^0.0.1",
+    "webpack": "^3.10.0"
+  }
+}
