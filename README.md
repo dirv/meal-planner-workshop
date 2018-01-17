@@ -18,13 +18,13 @@ You can then navigate to http://localhost:3000 to view the site.
 
 In addition to the index page, the server responds to the following HTTP requests.
 
-    | Request | Description |
-    | ------- | ----------- |
-    | `GET  /recipes` | Get an array of recipe names |
-    | `POST /recipes` | Add a new recipe (see example JSON below) |
-    | `PUT  /recipe/:name` | Replace a recipe |
-    | `GET /ingredients` | Get an array of all ingredients |
-    | `GET /measures` | Get an array of all measures |
+| Request | Description |
+| ------- | ----------- |
+| `GET  /recipes` | Get an array of recipe names |
+| `POST /recipes` | Add a new recipe (see example JSON below) |
+| `PUT  /recipe/:name` | Replace a recipe |
+| `GET /ingredients` | Get an array of all ingredients |
+| `GET /measures` | Get an array of all measures |
 
 A recipe looks like this:
 
