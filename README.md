@@ -30,18 +30,18 @@ A recipe looks like this:
 
 ```json
 {
-  name: 'Toast',
-  ingredients: [{
-    name: 'sliced bread',
-    amount: 2,
-    measure: 'slice'
+  "name": "Toast",
+  "ingredients": [{
+    "name": "sliced bread",
+    "amount": 2,
+    "measure": "slice"
   },{
-    name: 'butter',
-    amount: 1,
-    measure: 'tablespoon'
+    "name": "butter",
+    "amount": 1,
+    "measure": "tablespoon"
   }],
-  instructions: 'Cook bread in toaster, then spread butter. Serve warm.',
-  serves: 1,
-  preparationTimeInMins: 3
+  "instructions": "Cook bread in toaster, then spread butter. Serve warm.",
+  "serves": 1,
+  "preparationTimeInMins": 3
 }
 ```
