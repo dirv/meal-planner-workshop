@@ -2,12 +2,17 @@ const express = require('express')
 const app = express()
 import { Validator, ValidationError } from 'express-json-validator-middleware'
 import { ingredients } from './ingredients'
+import { measures } from './measures'
 import { getAllRecipeNames, addRecipe, findRecipeByName, replaceRecipe, recipeSchema,  } from './recipes'
 
 var validator = new Validator({allErrors: true})
 
-app.get('/', function (req, res) {
+app.get('/ingredients', function (req, res) {
   res.send(ingredients);
+})
+
+app.get('/measures', function (req, res) {
+  res.send(measures);
 })
 
 app.get('/recipes', function(req, res) {

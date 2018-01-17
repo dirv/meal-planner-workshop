@@ -3,7 +3,7 @@ const recipes = [{
   ingredients: [{
     name: 'white bread',
     amount: 2,
-    unit: 'slice'
+    measure: 'slice'
   }],
   instructions: 'Here are the instructions for the recipe.',
   serves: 1,
@@ -41,9 +41,9 @@ export const recipeSchema = {
         properties: {
           name: { type: 'string' },
           amount: { type: 'number' },
-          unit: { type: 'string' }
+          measure: { type: 'string' }
         },
-        required: ['name', 'amount', 'unit']
+        required: ['name', 'amount', 'measure']
       }
     },
   },

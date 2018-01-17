@@ -1,3 +1,3 @@
 export const ingredients = [
-  {name: "white bread", unit: "slice", calories: 123 },
+  {name: "white bread", measure: "slice", calories: 123 },
 ]
