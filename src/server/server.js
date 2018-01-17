@@ -53,8 +53,15 @@ app.get('/recipes/:name', function(req, res) {
   }
 })
 
+app.get('/', function (req, res) {
+  res.render('index', {})
+})
+
 app.set('json spaces', 2);
 app.use(express.json())
+app.use(express.static('./dist/public'))
+app.engine('pug', require('pug').__express)
+app.set('view engine', 'pug')
 
 app.use(function(err, req, res, next) {
   let responseData;

@@ -1,4 +1,5 @@
-const path = require('path');
+const path = require('path')
+const nodeExternals = require('webpack-node-externals')
 
 var serverConfig = {
   target: 'node',
@@ -12,7 +13,8 @@ var serverConfig = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'server.js',
   },
-  devtool: 'inline-source-map'
+  devtool: 'inline-source-map',
+  externals: [nodeExternals()]
 };
 
 var clientConfig = {
@@ -25,9 +27,10 @@ var clientConfig = {
   },
   output: {
     path: path.resolve(__dirname, 'dist/public'),
-    filename: '[name].js'
+    filename: 'client.js'
   },
-  devtool: 'inline-source-map'
+  devtool: 'inline-source-map',
+  externals: [nodeExternals()]
 };
 
 module.exports = [ serverConfig, clientConfig ];
