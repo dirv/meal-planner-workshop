@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 import { Validator, ValidationError } from 'express-json-validator-middleware'
 import { ingredients } from './ingredients'
-import { recipes, addRecipe, recipeSchema } from './recipes'
+import { getAllRecipeNames, addRecipe, findRecipeByName, replaceRecipe, recipeSchema,  } from './recipes'
 
 var validator = new Validator({allErrors: true})
 
@@ -11,19 +11,36 @@ app.get('/', function (req, res) {
 })
 
 app.get('/recipes', function(req, res) {
-  res.send(recipes.map(r => r.name))
+  res.send(getAllRecipeNames())
 })
 
 app.post('/recipes', [
   express.json(),
   validator.validate({body: recipeSchema})
 ], function(req, res) {
-  addRecipe(req.body)
-  res.sendStatus(200)
+  if (findRecipeByName(req.body.name)) {
+    res.sendStatus(409)
+  } else {
+    addRecipe(req.body)
+    res.sendStatus(200)
+  }
+})
+
+app.put('/recipes/:name', [
+  express.json(),
+  validator.validate({body: recipeSchema})
+], function(req, res) {
+  const recipe = findRecipeByName(req.params.name)
+  if (recipe) {
+    replaceRecipe(recipe, req.body)
+    res.sendStatus(200)
+  } else {
+    res.sendStatus(404)
+  }
 })
 
 app.get('/recipes/:name', function(req, res) {
-  const recipe = recipes.find(r => r.name === req.params.name)
+  const recipe = findRecipeByName(req.params.name)
   if (recipe) {
     res.send(recipe)
   } else {

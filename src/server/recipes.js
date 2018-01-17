@@ -1,4 +1,4 @@
-export const recipes = [{
+const recipes = [{
   name: 'Toast',
   ingredients: [{
     name: 'white bread',
@@ -12,6 +12,19 @@ export const recipes = [{
 
 export function addRecipe(recipe) {
   recipes.push(recipe)
+}
+
+export function findRecipeByName(name) {
+  return recipes.find(r => r.name === name)
+}
+
+export function replaceRecipe(existing, newRecipe) {
+  const index = recipes.indexOf(existing)
+  recipes[index] = newRecipe
+}
+
+export function getAllRecipeNames() {
+  return recipes.map(r => r.name)
 }
 
 export const recipeSchema = {
