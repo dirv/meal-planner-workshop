@@ -8,6 +8,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "express": "^4.16.2",
+    "express-json-validator-middleware": "^1.2.1",
     "jasmine": "^2.8.0",
     "react": "^16.2.0",
     "react-test-utils": "^0.0.1",
