@@ -6,8 +6,8 @@ To get the most out of this workshop, *you will need working knowledge of git, G
 
 ## Getting started
 
-   1. Fork this repo
-   2. Clone your fork
+   1. Fork this repo on your own GitHub acccount.
+   2. Clone your fork to your local machine.
    3. Ensure you meet the prerequisites by installing the software mentioned in the Prerequisites section below.
    4. Follow the steps in the Building section.
 
