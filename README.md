@@ -4,7 +4,7 @@ This is material for a workhop teaching JavaScript, React and Test-Driven Develo
 
 To get the most out of this workshop, *you will need working knowledge of git, GitHub and the command line*. If you're attending the workshop, please follow the Getting started section below before the workshop begins.
 
-## Getting started
+## Getting started
 
    1. Fork this repo
    2. Clone your fork
@@ -37,7 +37,7 @@ You should see a lot of green (maybe some yellow) but no red.
 
 You can then navigate to http://localhost:3000 to view the site.
 
-## More information
+## More information
 
 ### The server
 
