@@ -8,6 +8,10 @@ Ensure you have [node](https://nodejs.org/en/) and [yarn](https://yarnpkg.com) i
 
     yarn webpack
 
+To run tests:
+
+    yarn jasmine
+
 ### Running
 
     node dist/server.js

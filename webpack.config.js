@@ -33,8 +33,7 @@ var clientConfig = {
     path: path.resolve(__dirname, 'dist/public'),
     filename: 'client.js'
   },
-  devtool: 'inline-source-map',
-  externals: [nodeExternals()]
+  devtool: 'inline-source-map'
 };
 
 module.exports = [ serverConfig, clientConfig ];
