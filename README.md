@@ -1,3 +1,16 @@
+# meal-planner-workshop
+
+This is material for a workhop teaching JavaScript, React and Test-Driven Development (TDD).
+
+To get the most out of this workshop, *you will need working knowledge of git, GitHub and the command line*. If you're attending the workshop, please follow the Getting started section below before the workshop begins.
+
+## Getting started
+
+   1. Fork this repo
+   2. Clone your fork
+   3. Ensure you meet the prerequisites by installing the software mentioned in the Prerequisites section below.
+   4. Follow the steps in the Building section.
+
 ### Prerequisites
 
 Ensure you have [node](https://nodejs.org/en/) and [yarn](https://yarnpkg.com) installed on your machine. If you're on a Mac, you can do this quite easily if you have [Homebrew](https://brew.sh/) installed using the command:
@@ -6,17 +19,25 @@ Ensure you have [node](https://nodejs.org/en/) and [yarn](https://yarnpkg.com) i
 
 ### Building
 
-    yarn webpack
-
-To run tests:
+First of all, run the tests:
 
     yarn jasmine
+
+You should see all tests passing (there will be a message saying "0 failures").
+
+Now you can build the source using:
+
+    yarn webpack
+
+You should see a lot of green (maybe some yellow) but no red.
 
 ### Running
 
     node dist/server.js
 
 You can then navigate to http://localhost:3000 to view the site.
+
+## More information
 
 ### The server
 
