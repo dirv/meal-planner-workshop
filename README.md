@@ -19,7 +19,11 @@ Ensure you have [node](https://nodejs.org/en/) and [yarn](https://yarnpkg.com) i
 
 ### Building
 
-First of all, run the tests:
+First of, install all dependencies:
+
+    yarn install
+
+Run the tests:
 
     yarn jasmine
 
