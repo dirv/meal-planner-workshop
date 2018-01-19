@@ -35,6 +35,7 @@ app.put('/recipes/:name', [
   express.json(),
   validator.validate({body: recipeSchema})
 ], function(req, res) {
+  console.log(req.params.name)
   const recipe = findRecipeByName(req.params.name)
   if (recipe) {
     replaceRecipe(recipe, req.body)
