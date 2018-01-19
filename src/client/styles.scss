@@ -1,2 +1,23 @@
-body { font-family: sans-serif; }
+$primary-color: #68B;
+
+body {
+  font-family: sans-serif;
+  width: 1000px;
+}
 h1 { font-family: Helvetica; }
+
+#recipeList {
+  display: flex;
+  ul {
+    list-style: none;
+    margin: 0;
+    margin-right: 20px;
+    vertical-align: top;
+    width: 300px;
+    li {
+      text-decoration: underline;
+      color: $primary-color;
+      cursor: pointer;
+    }
+  }
+}

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import ReactTestUtils from 'react-dom/test-utils'
 import { resetDom } from '../specHelper'
 import RecipeList from '~/recipeList'
+import Recipe from '~/recipe'
 
 const recipes = ['recipe 1', 'recipe 2']
 
@@ -16,13 +17,18 @@ describe('recipeList', () => {
   })
 
   it('initially displays an empty unordered list', () => {
-    mountComponent(repository)
+    mountComponent()
     expect(ul()).toBeDefined()
     expect(ul().children.length).toEqual(0)
   })
 
+  it('initially has no chosen recipe', () => {
+    mountComponent()
+    expect(recipe().props.chosenRecipe).not.toBeDefined()
+  })
+
   it('renders all recipes once they are received', (done) => {
-    mountComponent(repository)
+    mountComponent()
     setImmediate(() => {
       expect(ul().children.length).toEqual(2)
       expect(ul().children[0].textContent).toEqual('recipe 1')
@@ -31,14 +37,45 @@ describe('recipeList', () => {
     })
   })
 
+  it('renders recipes as links', (done) => {
+    mountComponent()
+    setImmediate(() => {
+      expect(ul().querySelectorAll('li > a').length).toEqual(2)
+      done()
+    })
+  })
+
+  it('clicking link sets the displayed recipe correctly', (done) => {
+    mountComponent()
+    setImmediate(() => {
+      click(firstLink())
+      setImmediate(() => {
+        expect(recipe().props.chosenRecipe).toEqual('recipe 1')
+        done()
+      })
+    })
+  })
+
   function ul() {
     return ReactTestUtils.findRenderedDOMComponentWithTag(component, 'ul')
   }
 
-  function mountComponent(repository) {
+  function recipe() {
+    return ReactTestUtils.findRenderedComponentWithType(component, Recipe)
+  }
+
+  function firstLink() {
+    return ul().querySelectorAll('li > a')[0]
+  }
+
+  function mountComponent() {
     const container = document.createElement('div')
     component = ReactDOM.render(
       <RecipeList recipeRepository={repository} />,
       container)
+  }
+
+  function click(link) {
+    return ReactTestUtils.Simulate.click(link)
   }
 })
