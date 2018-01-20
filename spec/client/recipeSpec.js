@@ -4,11 +4,15 @@ import ReactTestUtils from 'react-dom/test-utils'
 import Recipe from '~/recipe'
 
 describe('Recipe', () => {
-  let component
-  const container = document.createElement('div')
   const recipe = { name: 'Avocado bagel' }
+  let component
+  let container
+  let recipeLoader
 
-  const recipeLoader = jasmine.createSpy().and.returnValue(Promise.resolve(recipe))
+  beforeEach(() => {
+    container = document.createElement('div')
+    recipeLoader = jasmine.createSpy().and.returnValue(Promise.resolve(recipe))
+  })
 
   it('displays no selection message if nothing is selected', () => {
     mountComponent(undefined)
@@ -36,7 +40,7 @@ describe('Recipe', () => {
     })
   })
 
-  fit('loads when the component is update with new props', (done) => {
+  it('loads when the component is update with new props', (done) => {
     mountComponent(undefined)
     mountComponent('Avocado bagel')
     setImmediate(() => {

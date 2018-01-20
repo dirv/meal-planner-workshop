@@ -28,7 +28,6 @@ export default class Recipe extends React.Component {
 
   render() {
     if(this.props.chosenRecipe) {
-      console.log(this.state && this.state.recipe)
       return <div>Displaying recipe {this.props.chosenRecipe}</div>
     } else {
       return <div>No recipe selected</div>

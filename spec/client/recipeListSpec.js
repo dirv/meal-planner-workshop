@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactTestUtils from 'react-dom/test-utils'
 import { resetDom } from '../specHelper'
+import { loadRecipe } from '~/recipeRepository'
 import RecipeList from '~/recipeList'
 import Recipe from '~/recipe'
 
@@ -14,6 +15,7 @@ describe('recipeList', () => {
 
   beforeEach(() => {
     resetDom()
+    spyOn(Recipe.prototype, 'componentDidUpdate')
   })
 
   it('initially displays an empty unordered list', () => {
