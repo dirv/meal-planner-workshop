@@ -4,7 +4,17 @@ import ReactTestUtils from 'react-dom/test-utils'
 import Recipe from '~/recipe'
 
 describe('Recipe', () => {
-  const recipe = { name: 'Avocado bagel' }
+  const recipe = {
+    name: 'Avocado bagel',
+    serves: 1,
+    preparationTimeInMins: 10,
+    ingredients: [
+      {name: 'avocado', amount: '1'},
+      {name: 'sesame bagel', amount: '1'},
+      {name: 'butter', amount: 1, measure: 'tablespoon'},
+      {name: 'chilli oil', amount: 2, measure: 'tablespoon'}
+    ],
+    instructions: 'instructions'}
   let component
   let container
   let recipeLoader
@@ -17,11 +27,6 @@ describe('Recipe', () => {
   it('displays no selection message if nothing is selected', () => {
     mountComponent(undefined)
     expect(textContent()).toEqual('No recipe selected')
-  })
-
-  it('displays a message if a recipe is selected', () => {
-    mountComponent('Avocado bagel')
-    expect(textContent()).toEqual('Displaying recipe Avocado bagel')
   })
 
   it('does not load a recipe if no recipe is given', (done) => {
@@ -48,6 +53,67 @@ describe('Recipe', () => {
       done()
     })
   })
+
+  describe('recipe rendering', () => {
+    beforeEach(() => {
+      mountComponent('Avocado bagel')
+    })
+
+    it('displays the name of the recipe in a heading', (done) => {
+      setImmediate(() => {
+        expect(h2().textContent).toEqual('Avocado bagel')
+        done()
+      })
+    })
+
+    it('displays whole ingredients', (done) => {
+      setImmediate(() => {
+        expect(textContent()).toContain('1 avocado')
+        expect(textContent()).toContain('1 sesame bagel')
+        done()
+      })
+    })
+
+    it('displays ingredient with one measure', (done) => {
+      setImmediate(() => {
+        expect(textContent()).toContain('1 tablespoon butter')
+        done()
+      })
+    })
+
+    it('displays ingredients with multiple units', (done) => {
+      setImmediate(() => {
+        expect(textContent()).toContain('2 tablespoon chilli oil')
+        done()
+      })
+    })
+
+    it('displays serving', (done) => {
+      setImmediate(() => {
+        expect(textContent()).toContain('Serves: 1')
+        done()
+      })
+    })
+
+    it('displays preparation time', (done) => {
+      setImmediate(() => {
+        expect(textContent()).toContain('Preparation time: 10 mins')
+        done()
+      })
+    })
+
+    it('display instructions', (done) => {
+      setImmediate(() => {
+        expect(textContent()).toContain('instructions')
+        done()
+      })
+    })
+  })
+
+  function h2() {
+    return ReactTestUtils
+      .findRenderedDOMComponentWithTag(component, 'h2')
+  }
 
   function textContent() {
     return ReactTestUtils

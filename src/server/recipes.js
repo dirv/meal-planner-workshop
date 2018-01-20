@@ -38,7 +38,7 @@ const recipes = [{
     {name: 'potato', amount: 1},
     {name: 'salt', amount: 1, measure: 'teaspoon'},
     {name: 'minced parsley', amount: 1, measure: 'tablespoon'}],
-  instructions:'Slice the vegetables and fry in the butter for five minutes, place them in a saucepan with the lentils and water and boil one and a half hours; add salt and a little pepper if liked. Strain, replace in the saucepan, add the parsley, boil for three minutes, and serve.\n\n _Note_&embash;The solid part which is strained away should on no account be wasted, but will be found excellent for making lentil puddings, pies, stews, etc.',
+  instructions:'Slice the vegetables and fry in the butter for five minutes, place them in a saucepan with the lentils and water and boil one and a half hours; add salt and a little pepper if liked. Strain, replace in the saucepan, add the parsley, boil for three minutes, and serve.\n\n _Note_&emdash;The solid part which is strained away should on no account be wasted, but will be found excellent for making lentil puddings, pies, stews, etc.',
   serves:4,
   preparationTimeInMins:100,
 },{

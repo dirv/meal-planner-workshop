@@ -22,8 +22,8 @@ export default class RecipeList extends React.Component {
   }
 
   render() {
-    return <div id='recipeList'>
-      <ul>
+    return <div id='main'>
+      <ul id='recipeList'>
       {this.state.recipes.map(this.renderRecipe)}
       </ul>
       <Recipe chosenRecipe={this.state.chosenRecipe} />

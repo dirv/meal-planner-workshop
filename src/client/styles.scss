@@ -5,15 +5,16 @@ body {
   width: 1000px;
 }
 h1 { font-family: Helvetica; }
+h2 { margin: 0; }
 
-#recipeList {
+#main {
   display: flex;
-  ul {
+  #recipeList {
     list-style: none;
     margin: 0;
     margin-right: 20px;
     vertical-align: top;
-    width: 300px;
+    min-width: 200px;
     li {
       text-decoration: underline;
       color: $primary-color;

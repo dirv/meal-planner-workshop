@@ -7,7 +7,9 @@ export default class Recipe extends React.Component {
   constructor(props) {
     super(props)
     this.doLoad = this.doLoad.bind(this)
+    this.renderRecipe = this.renderRecipe.bind(this)
     this.doLoad()
+    this.state = {}
   }
 
   componentDidUpdate(oldProps, oldState) {
@@ -27,10 +29,28 @@ export default class Recipe extends React.Component {
   }
 
   render() {
-    if(this.props.chosenRecipe) {
-      return <div>Displaying recipe {this.props.chosenRecipe}</div>
+    if(this.state.recipe) {
+      return this.renderRecipe()
     } else {
       return <div>No recipe selected</div>
+    }
+  }
+
+  renderRecipe() {
+    return <div id='recipe'>
+      <h2>{this.props.chosenRecipe}</h2>
+      <ul>{this.state.recipe.ingredients.map(this.renderIngredient)}</ul>
+      <p>Serves: {this.state.recipe.serves}</p>
+      <p>Preparation time: {this.state.recipe.preparationTimeInMins} mins</p>
+      <p>{this.state.recipe.instructions}</p>
+      </div>
+  }
+
+  renderIngredient(ingredient) {
+    if(ingredient.measure) {
+      return <li key={ingredient.name}>{ingredient.amount} {ingredient.measure} {ingredient.name}</li>
+    } else {
+      return <li key={ingredient.name}>{ingredient.amount} {ingredient.name}</li>
     }
   }
 }
