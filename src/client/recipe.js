@@ -8,6 +8,7 @@ export default class Recipe extends React.Component {
     super(props)
     this.doLoad = this.doLoad.bind(this)
     this.doLoad()
+    this.state = {}
   }
 
   componentDidUpdate(oldProps, oldState) {
@@ -27,8 +28,8 @@ export default class Recipe extends React.Component {
   }
 
   render() {
-    if(this.props.chosenRecipe) {
-      return <div>Displaying recipe {this.props.chosenRecipe}</div>
+    if(this.state.recipe) {
+      return <div>Displaying recipe {this.state.recipe.name}</div>
     } else {
       return <div>No recipe selected</div>
     }

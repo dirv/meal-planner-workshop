@@ -19,9 +19,12 @@ describe('Recipe', () => {
     expect(textContent()).toEqual('No recipe selected')
   })
 
-  it('displays a message if a recipe is selected', () => {
+  it('displays a message if a recipe is selected', (done) => {
     mountComponent('Avocado bagel')
-    expect(textContent()).toEqual('Displaying recipe Avocado bagel')
+    setImmediate(() => {
+      expect(textContent()).toEqual('Displaying recipe Avocado bagel')
+      done()
+    })
   })
 
   it('does not load a recipe if no recipe is given', (done) => {
